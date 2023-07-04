@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.img{
+    width: 500px;
+    height: 500px;
+    background-color: #FFA500;
+}
