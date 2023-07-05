@@ -27,7 +27,6 @@ export const CardList = ({recipes}) => {
 
   return (
     <div className={style.container}>
-      <h1>CARD LIST</h1>
       <input className={style.search} type="search" placeholder="Search by name"  onChange={handleChange} value={name}></input>
       <div className={style.containerCard}>
         {!recipes.length ? (

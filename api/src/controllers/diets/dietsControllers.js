@@ -20,3 +20,6 @@ const getDietsController = async ()=>{
 }
 
 module.exports = {getDietsController}
+
+
+//  https://api.spoonacular.com

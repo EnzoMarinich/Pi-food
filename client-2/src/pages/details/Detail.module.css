@@ -1,14 +1,72 @@
 .container{
     display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 3rem;
+    background-color:  rgba(255,139,0);
+    color: white;
+}
+
+
+.containerOne{
+    padding: 2rem 13rem;
+    display: flex;
     flex-direction: row;
     width: 100%;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    gap: 3rem;
+    border-bottom: solid 2px;
 }
 
 .img{
-    width: 500px;
-    height: 500px;
+    width: 50%;
+    height: 30rem;
     background-color: #FFA500;
+    background-size: cover;
+    border-radius: .2rem;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 2rem;
+    text-align: center;
+}
+
+.description h1{
+    font-weight: 600;
+    font-size: 2.3em;
+}
+
+.description h3{
+    font-size: 1.1em;
+    letter-spacing: .07em;
+}
+
+.steps{
+    text-align: center;
+    padding: 0 18rem;
+}
+
+.steps h1{
+    font-family: Inter;
+    font-size: 3em;
+    margin-bottom: 1.5rem;
+}
+
+.steps p{
+    font-size: 1.4em;
+}
+
+.healthScore{
+    font-family: Inter;
+    font-size: 2em;
+    margin-left: 1rem;
+    font-weight: 600;
+}
+
+.healthScoreText{
+    font-size: .8em;
 }

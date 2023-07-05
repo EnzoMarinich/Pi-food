@@ -4,7 +4,7 @@ const cleanerInfo = (arr)=>{
             name : el.title,
             id: el.id,
             image : el.image,
-            sumary : el.sumary,
+            summary : el.summary ,
             healthScore: el.healthScore,
             steps : el.analyzedInstructions,
             diets : el.diets,

@@ -21,3 +21,21 @@
     font-weight: 900;
     font-size: 2.5em;
 }
+.container button{
+    font-size: 1.5em;
+    width: 12rem;
+    height: 4rem;
+    border-radius: 0.2rem;
+    border: none;
+    background-color: #0b0149;
+    color: white;
+    margin-top: 2rem;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.container button:hover{
+    background-color: white;
+    color: #0b0149;
+    transform: scale(1.1);
+}

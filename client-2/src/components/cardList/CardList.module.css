@@ -20,7 +20,19 @@
 }
 
 .search{
-    width: 200px;
+    width: 20rem;
     outline: none;
     padding: 3px 10px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    outline: none;
+    border-bottom: solid .2rem white;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.search::placeholder{
+    color: white;
 }
