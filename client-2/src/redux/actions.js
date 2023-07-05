@@ -42,29 +42,20 @@ export const getDiets = ()=>{
     }
 }
 
-export const filterByDiets = (array)=>{
-    return (dispatch)=>{
-        return dispatch({
-            type : "FILTER_BY_DIET",
-            payload : array
-        })
-    }
-}
-
-export const filterByCreated = (obj)=>{
-    return (dispatch)=>{
-        return dispatch({
-            type: "FILTER_BY_CREATED",
-            payload : obj
-        })
-    }
-}
-
 export const filterByAlfabeto = (str)=>{
     return (dispatch)=>{
         return dispatch({
             type: "FILTER_ BY_ALFABETO",
             payload: str
+        })
+    }
+}
+
+export const filter = (obj)=>{
+    return (dispatch)=>{
+        return dispatch({
+            type : "FILTER",
+            payload : obj
         })
     }
 }

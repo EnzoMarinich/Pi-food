@@ -17,7 +17,7 @@ module.exports = (sequelize) => {
     image:{
       type : DataTypes.STRING
     },
-    sumary:{
+    summary:{
       type: DataTypes.TEXT,
       allowNull: false
     },

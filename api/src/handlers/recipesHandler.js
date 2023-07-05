@@ -7,7 +7,6 @@ const getRecipeHandler = async (req, res) => {
   const { name } = req.query;
   try {
     const recipes = await getRecipesControllers(name);
-    console.log(recipes)
     res.status(200).json(recipes);
   } catch (error) {
     res.status(404).send(error.message);
@@ -26,7 +25,7 @@ const getRecipeByIdHandler = async (req, res) => {
 };
 
 const postRecipeHandler = async (req, res) => {
-  const datos = ({ name, image, sumary, healthScore, steps, diets } = req.body)
+  const datos = ({ name, image, summary, healthScore, steps, diets } = req.body)
   try {
     const newRecipe = await postRecipeControllers(datos)
     res.status(202).json(newRecipe);

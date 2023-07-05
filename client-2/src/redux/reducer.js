@@ -14,25 +14,7 @@ const reducer = (state = initialState, action) => {
 
     case "FILTER_NAME":
       return { ...state, copyRecipes: action.payload };
-
-    case "FILTER_BY_DIET": {
-      const selectDiets = action.payload;
-      const recipesFiltered = state.recipes.filter((e) =>
-        selectDiets.every((diet) => e.diets.includes(diet))
-      );
-      return { ...state, copyRecipes: recipesFiltered };
-    }
-
-    case "FILTER_BY_CREATED": {
-      const { all, created } = action.payload;
-      if (all) {
-        return { ...state, copyRecipes: state.recipes };
-      } else {
-        const newRecipes = state.recipes.filter((e) => e.created == created);
-        return { ...state, copyRecipes: newRecipes };
-      }
-    }
-
+      
     case "FILTER_ BY_ALFABETO": {
         const {payload} = action
 
@@ -57,6 +39,22 @@ const reducer = (state = initialState, action) => {
         );
         return { ...state, copyRecipes: sortedRecipes };
       }
+    }
+
+    case "FILTER":{
+      const selectDiets = action.payload.diets;
+      const { all, created } = action.payload.checkbox
+      const recipesFiltered = state.recipes.filter((e) =>
+        selectDiets.every((diet) => e.diets.includes(diet))
+      );
+
+      if (all) {
+        return { ...state, copyRecipes: recipesFiltered };
+      } else {
+        const newRecipes = recipesFiltered.filter((e) => e.created == created);
+        return { ...state, copyRecipes: newRecipes };
+      }
+
     }
     default:
       return { ...state };

@@ -16,9 +16,29 @@
     background-color: white;
     color: #0b0149;
     border: none;
+    border-radius: .5rem;
 }
 
 .button:hover{
     border-bottom: solid .3rem #0b0149;
     cursor: pointer;
+}
+
+.isActive{
+    background-color: #0b0149;
+    color: white;
+}
+
+.mov{
+    border-radius: 1rem;
+    width: 7rem;
+    height: 2rem;
+    background-color: #0b0149;
+    color: white;
+    cursor: pointer;
+    transition: all .15s;
+}
+
+.mov:hover{
+    transform: scale(1.1);
 }

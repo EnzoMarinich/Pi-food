@@ -19,7 +19,14 @@ const getRecipesControllers = async (name)=>{
                                 through: {attributes: [] }
                         }
                 })
-                return [...infoApiClean, ...infoBBDD]
+                const infoBBDDcleaner = await Promise.all(infoBBDD.map(recipe=>{
+                        const newDiets = recipe.diets.map(diet=> diet.name)
+                        return {
+                                ...recipe.toJSON(),
+                                diets: newDiets
+                              };
+                }) )
+                return [...infoApiClean, ...infoBBDDcleaner]
         } else {
                 const infoApiClean = cleanerInfo(infoApi)
                 const infoBBDD = await Recipe.findAll({
@@ -29,7 +36,15 @@ const getRecipesControllers = async (name)=>{
                                 through: {attributes: [] }
                         }
                 })
-                return [...infoApiClean, ...infoBBDD]
+                const infoBBDDcleaner = await Promise.all(infoBBDD.map(recipe=>{
+                        const newDiets = recipe.diets.map(diet=> diet.name)
+                        return {
+                                ...recipe.toJSON(),
+                                diets: newDiets
+                              };
+                }) ) 
+  
+                return [...infoApiClean, ...infoBBDDcleaner] 
         }
 }
 

@@ -1,12 +1,12 @@
 const { Recipe, Diet } = require("../../db");
 
 const postRecipeControllers = async (datos) => {
-  const { name, image, sumary, healthScore, steps, diets } = datos
+  const { name, image, summary, healthScore, steps, diets } = datos
 
   const newRecipe = await Recipe.create({
     name,
     image,
-    sumary,
+    summary,
     healthScore,
     steps,
   });

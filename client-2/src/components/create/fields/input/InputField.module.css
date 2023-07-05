@@ -1,0 +1,100 @@
+.name{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    /* border: solid 1px yellow; */
+    height: 5rem;
+    gap: .5rem;
+    position: relative;
+}
+.name input{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: solid 1px rgb(143, 143, 143);
+    color: white;
+    width: 20rem;
+    text-align: center;
+    font-size: 1em;
+    padding-bottom: .2rem;
+}
+
+.summary{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    /* border: solid 1px red; */
+    height: 5rem;
+    gap: .5rem;
+    position: relative;
+}
+
+.summary input{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: solid 1px rgb(143, 143, 143);
+    color: white;
+    width: 20rem;
+    text-align: center;
+    font-size: 1em;
+    padding-bottom: .2rem;
+}
+
+.steps{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: solid 1px brown; */
+    height: 8rem;
+    width: 100%;
+    gap: .3rem;
+    position: relative;
+}
+
+.steps textarea{
+    width: 80%;
+    height: 60%;
+    background-color: transparent;
+    outline: none;
+    border: solid 1px rgb(124, 121, 121);
+    border-radius: 5px;
+    color: white;
+    padding: .5rem;
+}
+
+
+.image{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    gap: .4rem;
+    /* border: 1px solid saddlebrown; */
+}
+.image input{
+    width: 15rem;
+    white-space: wrap;
+}
+
+.healthScore{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    gap: .9rem;
+    position: relative;
+}
+
+.healthScore input{
+    width: 13rem;
+}
+
+.error{
+    color: red;
+    font-size: .7em;
+    position: absolute;
+    bottom: .5rem;
+}
