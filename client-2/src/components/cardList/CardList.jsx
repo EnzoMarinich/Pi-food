@@ -13,7 +13,7 @@ export const CardList = ({recipes}) => {
 
 
   const HandlePag=(pag)=>{
-    console.log(pag)
+    if(pag < 0) pag = 0
       setPage(pag)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }

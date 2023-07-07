@@ -22,4 +22,4 @@ const getDietsController = async ()=>{
 module.exports = {getDietsController}
 
 
-//  https://api.spoonacular.com
+//    https://api.spoonacular.com

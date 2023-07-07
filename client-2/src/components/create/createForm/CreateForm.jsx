@@ -56,6 +56,7 @@ export const CreateForm = ({ diets }) => {
   const handleSubmit = (e)=>{
     e.preventDefault()
     Object.keys(formErrors).length? null : createRecipe(formData)
+    alert("Receta creada correctamente!")
     setFormData({
       name: "",
     summary: "",
@@ -68,7 +69,7 @@ export const CreateForm = ({ diets }) => {
 
   return (
       <form className={style.form} onSubmit={handleSubmit}>
-        <InputField name="name" label="Name:" type="text" formData={formData} handleInput={handleInput} error={formErrors.name}/>
+        <InputField  name="name" label="Name:" type="text" formData={formData} handleInput={handleInput} error={formErrors.name}/>
         <InputField name="summary" label="Summary:" type="text" formData={formData} handleInput={handleInput}  error={formErrors.summary}/>
         <div className={style.image}>
           <InputField name="image" label="image:" type="file" formData={formData} handleInput={handleInput}/>

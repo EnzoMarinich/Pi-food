@@ -18,7 +18,6 @@ export const Detail = () => {
     searchRecipe();
   }, []);
 
-  console.log(recipe.diets)
 
   return (
     <div className={style.container}>

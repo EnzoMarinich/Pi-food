@@ -3,6 +3,7 @@ const {cleanerInfo} = require("../../utils/cleaner")
 const {Recipe, Diet} = require("../../db")
 const { Op } = require("sequelize")
 const { cleanerBBDD } = require("../../utils/cleanerBBDD")
+const { editDiets } = require("../../utils/editDiets")
 
 
 const getRecipesControllers = async (name)=>{
@@ -19,13 +20,8 @@ const getRecipesControllers = async (name)=>{
                                 through: {attributes: [] }
                         }
                 })
-                const infoBBDDcleaner = await Promise.all(infoBBDD.map(recipe=>{
-                        const newDiets = recipe.diets.map(diet=> diet.name)
-                        return {
-                                ...recipe.toJSON(),
-                                diets: newDiets
-                              };
-                }) )
+                const infoBBDDcleaner = await editDiets(infoBBDD)
+
                 return [...infoApiClean, ...infoBBDDcleaner]
         } else {
                 const infoApiClean = cleanerInfo(infoApi)
@@ -36,13 +32,7 @@ const getRecipesControllers = async (name)=>{
                                 through: {attributes: [] }
                         }
                 })
-                const infoBBDDcleaner = await Promise.all(infoBBDD.map(recipe=>{
-                        const newDiets = recipe.diets.map(diet=> diet.name)
-                        return {
-                                ...recipe.toJSON(),
-                                diets: newDiets
-                              };
-                }) ) 
+                const infoBBDDcleaner = await editDiets(infoBBDD)
   
                 return [...infoApiClean, ...infoBBDDcleaner] 
         }
@@ -50,4 +40,4 @@ const getRecipesControllers = async (name)=>{
 
 module.exports = {getRecipesControllers}
 
-// https://api.spoonacular.com
+//  https://api.spoonacular.com
