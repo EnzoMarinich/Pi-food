@@ -1,6 +1,7 @@
 import React from 'react'
 import style from "./Card.module.css"
 import { Link } from 'react-router-dom'
+import {FiChevronsUp} from "react-icons/fi"
 
 export const Card = ({recipe}) => {
 
@@ -10,16 +11,18 @@ export const Card = ({recipe}) => {
 
   return (
     <div key={recipe.id} className={style.card}>
-      <div className={style.decoration}></div>
       <div className={style.img} style={{backgroundImage: `url(${img})`}}></div>
       <div className={style.detail}>
         <p className={style.detailName}>{recipe.name}</p>
+      <div className={style.decoration}>
+        <FiChevronsUp className={style.icon}/>
         <div className={style.detailDiets}>
         <p>Diets:</p> 
         <strong>{diets}</strong>
         </div>
-      </div>
       <Link to={`detail/${recipe.id}`}><button className={style.button}>more info</button></Link>
+      </div>
+      </div>
     </div>
   )
 }

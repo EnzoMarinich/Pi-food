@@ -4,7 +4,11 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    background:linear-gradient(0turn, #be2600, rgb(255, 123, 0));
+    /* background:linear-gradient(0turn, #be2600, rgb(255, 123, 0));  #000000b0 */
+    /* background-image: url("https://img.freepik.com/foto-gratis/sabrosa-composicion-pizza-tradicional_23-2148921302.jpg?w=740&t=st=1689051928~exp=1689052528~hmac=87a9ff5af5be55f77270a44fe924dacff1ba42f1e7b352335a6bd4cf5c62e77c");
+    background-image: url("https://img.freepik.com/vector-gratis/papel-pintado-mural-restaurante_23-2148703851.jpg?w=740&t=st=1689052930~exp=1689053530~hmac=fed3ba6230ff00f9233708fad4bf13ec2bc3612e802df99b8ce7aca7916fe026"); */
+    /* background-image: url("https://img.freepik.com/vector-gratis/papel-pintado-mural-restaurante_23-2148695092.jpg?t=st=1689053104~exp=1689053704~hmac=2d32e3a2fea975074efefa1bcc8f7a278b87bd09cb914619ef860076559eb8ef"); */
+    /* background-size: cover; */
 }
 
 .allFilters{
