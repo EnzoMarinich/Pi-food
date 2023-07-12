@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./Paginado.module.css";
+import {AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai"
+
 
 export const Paginado = ({ recipes, handlePag }) => {
 
@@ -25,11 +27,15 @@ export const Paginado = ({ recipes, handlePag }) => {
     handlePag(newPage)
   }
 
+  useEffect(()=>{
+    setCurrentPag(0)
+    handlePag(0)
+  }, [recipes])
 
 
   return (
     <div className={style.container}>
-      <button className={style.mov} onClick={() => handleCick("back")}>BACK</button>
+      <button className={style.mov} onClick={() => handleCick("back")}><AiOutlineArrowLeft/></button>
       {buttons.map((e) => {
         return (
           <button className={`${style.button} ${currentPag == e? `${style.isActive}` : ""}`} key={e} onClick={() => handleCick(e) }>
@@ -37,7 +43,7 @@ export const Paginado = ({ recipes, handlePag }) => {
           </button>
         );
       })}
-      <button className={style.mov} onClick={() => handleCick("next")}>NEXT</button>
+      <button className={style.mov} onClick={() => handleCick("next")}><AiOutlineArrowRight/></button>
     </div>
   );
 };

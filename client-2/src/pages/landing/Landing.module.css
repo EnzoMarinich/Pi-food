@@ -5,7 +5,7 @@
     height: 100vh;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(0.1turn, rgb(255, 165, 0),   rgb(255, 165, 0) ,rgb(255, 123, 0));
+    /* background: linear-gradient(0.1turn, rgb(255, 165, 0),   rgb(255, 165, 0) ,rgb(255, 123, 0)); */
 }
 
 
@@ -33,15 +33,15 @@
     margin-top: 4rem;
     border-radius: .3rem;
     border:none;
-    background-color: #0b0149;
-    color: white;
+    background-color: #ffffff ;
+    color: #775909;
     cursor: pointer;
     transition: all .3s;
 }
 
 .home:hover{
-    background-color: white;
-    color: #0b0149;
+    background-color: #654000;
+    color: white;
     transform: scale(1.1);
 }
 
@@ -60,7 +60,7 @@
     font-family: cursive;
     font-size: 4.4em;
     font-weight: 800;
-    color: rgb(255, 123, 0);
+    color: rgb(178 124 13);
     top: 3rem;
     left: 8rem;
 }
