@@ -4,9 +4,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color:  rgba(255,139,0)
+    background-color:  #0000003b;
 }
- 
+
 .form{
     display: flex;
     align-items: center;
@@ -17,84 +17,6 @@
     border-radius: 5px;
     color: white;
     box-shadow: 37px 37px 22px 6px rgba(0,0,0,0.81);
--webkit-box-shadow: 37px 37px 22px 6px rgba(0,0,0,0.81);
--moz-box-shadow: 37px 37px 22px 6px rgba(0,0,0,0.81);
-
+    -webkit-box-shadow: 37px 37px 22px 6px rgba(0,0,0,0.81);
+    -moz-box-shadow: 37px 37px 22px 6px rgba(0,0,0,0.81);
 }
-/* 
-.form form{
-    display: flex;
-    flex-direction: column;
-    margin-left: 6rem;
-    height: 100%;
-    width: 37rem;
-    border: solid white 1px;
-    align-items: center;
-}
-
-.name{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    border: solid 1px yellow;
-    height: 5rem;
-}
-
-.sumary{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    border: solid 1px red;
-    height: 5rem;
-}
-
-.image{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    border: solid 1px forestgreen;
-    height: 5rem;
-}
-
-.image div{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    align-items: center;
-    gap: .4rem;
-    border: 1px solid wheat;
-}
-
-.diets{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 8rem;
-    gap: .4rem;
-}
-
-.diets div{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    gap: .7rem;
-    white-space: nowrap;
-}
-
-.steps{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: solid 1px brown;
-    height: 8rem;
-    width: 100%;
-}
-
-.submit{
-    width: 7rem;
-    height: 2rem;
-    margin-top: 1rem;
-} */

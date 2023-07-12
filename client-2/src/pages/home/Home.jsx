@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { CardList } from "../../components/cardList/CardList";
 import { useDispatch, useSelector } from "react-redux";
-import { filter, filterByAlfabeto, getRecipes } from "../../redux/actions";
+import {
+  filter,
+  filterByAlfabeto,
+  getDiets,
+  getRecipes,
+} from "../../redux/actions";
 import style from "./Home.module.css";
 
 export const Home = () => {
@@ -11,32 +16,27 @@ export const Home = () => {
   const [filterAsc, setFilterAsc] = useState("");
   const [filters, setFilters] = useState({
     diets: [],
-    checkbox: {
-      all: false,
-      created: false,
-      noCreated: false,
-    },
+    whereFrom: "",
   });
 
-  const handleFilters = (e) => {
-    if (e.target.type == "select-one") {
-      setFilters({
+  const handleByDiets = (e) => {
+
+    dispatch(filter({
+      ...filters,
+      diets: [...filters.diets, e.target.value],
+    }))
+
+    setFilters({
         ...filters,
         diets: [...filters.diets, e.target.value],
       });
-    } else {
-      const { name } = e.target;
-      if (!filters.diets.includes(name)) {
-        setFilters({
-          ...filters,
-          checkbox: {
-            all: name === "all",
-            created: name === "created",
-            noCreated: name === "noCreated",
-          },
-        });
-      }
-    }
+  };
+
+  const handleByCreate = (e) => {
+    const { value } = e.target;
+    dispatch(filter({ ...filters, whereFrom: value }));
+
+    setFilters({ ...filters, whereFrom: value });
   };
 
   const handleClose = (diet) => {
@@ -48,18 +48,15 @@ export const Home = () => {
   };
 
   useEffect(() => {
-    dispatch(filter(filters));
-  }, [filters]);
-
-  useEffect(() => {
     dispatch(getRecipes());
+    dispatch(getDiets());
   }, []);
 
   useEffect(() => {
     dispatch(filterByAlfabeto(filterAsc));
   }, [filterAsc]);
 
-  const handleChangeAsc = (e) => {
+  const handleByOrder = (e) => {
     const { value } = e.target;
     setFilterAsc(value);
   };
@@ -70,7 +67,7 @@ export const Home = () => {
         <div className={style.filterDiets}>
           <div className={style.dietsOptions}>
             <p>Selecciona tu tipo de dieta:</p>
-            <select onChange={handleFilters}>
+            <select onChange={handleByDiets}>
               {diets.map((e) => {
                 return (
                   <option key={e} value={e}>
@@ -92,41 +89,79 @@ export const Home = () => {
           </div>
         </div>
         <div className={style.filterTwo}>
-          <div>
-            <label htmlFor="all">All</label>
-            <input
-              type="checkbox"
-              name="all"
-              id="all"
-              checked={filters.checkbox.all}
-              onChange={handleFilters}
-            />
-            <label htmlFor="created">Created</label>
-            <input
-              type="checkbox"
-              name="created"
-              id="created"
-              checked={filters.checkbox.created}
-              onChange={handleFilters}
-            />
-            <label htmlFor="noCreated">No Created</label>
-            <input
-              type="checkbox"
-              name="noCreated"
-              id="noCreated"
-              checked={filters.checkbox.noCreated}
-              onChange={handleFilters}
-            />
+          <div className={style.creat}>
+            <div>
+              <input
+                type="radio"
+                name="CreatedBy"
+                id="all"
+                value="all"
+                onChange={handleByCreate}
+              />
+              <label htmlFor="all">ALL</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="CreatedBy"
+                id="created"
+                value="created"
+                onChange={handleByCreate}
+              />
+              <label htmlFor="created">BBDD</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="CreatedBy"
+                id="noCreated"
+                value="noCreated"
+                onChange={handleByCreate}
+              />
+              <label htmlFor="noCreated">API</label>
+            </div>
           </div>
-          <div>
-            <span>filtra por:</span>
-            <select onChange={handleChangeAsc}>
-              <option value="">Selecciona tu opcion</option>
-              <option value="alfabetoAsc">Alfabeto Asc...</option>
-              <option value="alfabetoDes">Alfabeto Des...</option>
-              <option value="healtScoreAsc">HealtScore {"< a >"}</option>
-              <option value="healtScoreDes">HealthScore{"> a <"}</option>
-            </select>
+          <div className={style.order}>
+            <div>
+              <input
+                type="radio"
+                name="orderBy"
+                id="alfabetoAsc"
+                value="alfabetoAsc"
+                onChange={handleByOrder}
+              />
+              <label htmlFor="alfabetoAsc">A-Z</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="orderBy"
+                id="alfabetoDes"
+                value="alfabetoDes"
+                onChange={handleByOrder}
+              />
+              <label htmlFor="alfabetoDes">Z-A</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="orderBy"
+                id="healtScoreAsc"
+                value="healtScoreAsc"
+                onChange={handleByOrder}
+              />
+              <label htmlFor="healtScoreAsc">1-100</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="orderBy"
+                id="healtScoreDes"
+                value="healtScoreDes"
+                onChange={handleByOrder}
+              />
+              <label htmlFor="healtScoreDes">100-1</label>
+            </div>
           </div>
         </div>
       </div>

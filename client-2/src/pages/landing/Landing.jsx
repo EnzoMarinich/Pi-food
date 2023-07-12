@@ -11,9 +11,6 @@ export const Landing = () => {
   const dispatch = useDispatch()
 
   const handleClick = ()=>{
-    if(!diets.length){
-      dispatch(getDiets())
-    }
     navigate("/home")
   } 
 

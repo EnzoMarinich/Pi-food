@@ -55,16 +55,18 @@ export const CreateForm = ({ diets }) => {
 
   const handleSubmit = (e)=>{
     e.preventDefault()
-    Object.keys(formErrors).length? null : createRecipe(formData)
-    alert("Receta creada correctamente!")
-    setFormData({
-      name: "",
-    summary: "",
-    image:"",
-    healthScore: 0,
-    diets: [],
-    steps: ""
-    }) 
+    if(!Object.keys(formErrors).length){
+      createRecipe(formData)
+      alert("Receta creada correctamente!")
+      setFormData({
+        name: "",
+      summary: "",
+      image:"",
+      healthScore: 0,
+      diets: [],
+      steps: ""
+      }) 
+    }
   }
 
   return (

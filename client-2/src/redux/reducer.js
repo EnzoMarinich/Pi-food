@@ -43,15 +43,18 @@ const reducer = (state = initialState, action) => {
 
     case "FILTER":{
       const selectDiets = action.payload.diets;
-      const { all, created } = action.payload.checkbox
+      const {whereFrom} = action.payload
       const recipesFiltered = state.recipes.filter((e) =>
         selectDiets.every((diet) => e.diets.includes(diet))
       );
 
-      if (all) {
+      if (whereFrom == "all") {
         return { ...state, copyRecipes: recipesFiltered };
+      } else if(whereFrom == "created"){
+        const newRecipes = recipesFiltered.filter((e) => e.created == true);
+        return { ...state, copyRecipes: newRecipes };
       } else {
-        const newRecipes = recipesFiltered.filter((e) => e.created == created);
+        const newRecipes = recipesFiltered.filter((e) => e.created == false);
         return { ...state, copyRecipes: newRecipes };
       }
 

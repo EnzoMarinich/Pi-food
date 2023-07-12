@@ -21,7 +21,7 @@ const getRecipesControllers = async (name)=>{
                         }
                 })
                 const infoBBDDcleaner = await editDiets(infoBBDD)
-
+ 
                 return [...infoApiClean, ...infoBBDDcleaner]
         } else {
                 const infoApiClean = cleanerInfo(infoApi)
