@@ -23,7 +23,7 @@ const getRecipeByIdController = async (id)=>{
         return resp[0]
 
     }else{
-        const rsta = (await axios.get(`http://localhost:8080/recipes/${id}/information?apiKey=97d40991f80048fa9ac7f8203b8f7b0e`)).data
+        const rsta = (await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=97d40991f80048fa9ac7f8203b8f7b0e`)).data
         return {
             name : rsta.title,
             id: rsta.id,
@@ -40,4 +40,4 @@ const getRecipeByIdController = async (id)=>{
 
 module.exports = {getRecipeByIdController}
 
-//  https://api.spoonacular.com
+//   http://localhost:8080

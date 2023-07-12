@@ -22,6 +22,12 @@
     font-weight: 600;
 }
 
+.allFilters option{
+    color: black;
+    font-weight: 600;
+}
+
+
 .filterDiets{
     display: flex;
     flex-direction: column;
@@ -34,16 +40,20 @@
 .dietsOptions{
     display: flex;
     gap: 1rem;
-
+    color: white;
+    font-size: 1em;
+    background-color: #000000a3;
 }
 
 .allFilters select{
-    background-color: #0b0149;
-    color: white;
+    background-color: #ffffff;
+    color: black;
     text-align: center;
     outline: none;
     cursor: pointer;
     border-radius: .2rem;
+    font-size: 1em;
+    font-weight: 600;
 }
 
 .dietsSelec{
@@ -58,11 +68,11 @@
 .diet{
     display: flex;
     flex-direction: row;
-    font-size: .4em;
-    background-color: #0b0149;
+    font-size: .5em;
+    background-color: #000000a3;
     color: white;
     gap: .8rem;
-    border: solid 1px #0b0149;
+    border: solid 1px white;
     border-radius: 5px;
     padding-left: .7rem;
     transition: all .3s;
@@ -115,5 +125,10 @@
 .filterTwo > div > div > input[type="radio"]:checked + label{
     background-color: rgb(255, 255, 255);
     color: black;
+}
+
+.filterTwo > div > div:hover{
+    transform: scale(1.1);
+    transition: all .3s;
 }
 
