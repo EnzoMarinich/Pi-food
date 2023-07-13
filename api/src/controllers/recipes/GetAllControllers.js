@@ -2,13 +2,14 @@ const {Axios, default: axios} = require("axios")
 const {cleanerInfo} = require("../../utils/cleaner")
 const {Recipe, Diet} = require("../../db")
 const { Op } = require("sequelize")
-const { cleanerBBDD } = require("../../utils/cleanerBBDD")
 const { editDiets } = require("../../utils/editDiets")
+require("dotenv").config()
+const {DB_APIKEY} = process.env
 
 
 const getRecipesControllers = async (name)=>{
 
-        const infoApi = (await axios.get(`https://api.spoonacular.com/recipes/complexSearch?addRecipeInformation=true&number=100&apiKey=97d40991f80048fa9ac7f8203b8f7b0e`)).data.results
+        const infoApi = (await axios.get(`https://api.spoonacular.com/recipes/complexSearch?addRecipeInformation=true&number=100&apiKey=${DB_APIKEY}`)).data.results
         if(name !== undefined){
                 const infoApiFiltered = infoApi.filter(recipe=> recipe.title.toLowerCase().includes(name.toLowerCase()))
                 const infoApiClean = cleanerInfo(infoApiFiltered)

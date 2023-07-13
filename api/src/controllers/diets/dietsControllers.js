@@ -1,5 +1,7 @@
 const {Diet} = require("../../db")
 const { default: axios} = require("axios")
+require("dotenv").config()
+const {DB_APIKEY} = process.env
 
 const getDietsController = async ()=>{
     
@@ -7,7 +9,7 @@ const getDietsController = async ()=>{
 
     if(!diets.length){
 
-    const infoApi = (await axios.get(`https://api.spoonacular.com/recipes/complexSearch?addRecipeInformation=true&number=100&apiKey=97d40991f80048fa9ac7f8203b8f7b0e`)).data.results
+    const infoApi = (await axios.get(`https://api.spoonacular.com/recipes/complexSearch?addRecipeInformation=true&number=100&apiKey=${DB_APIKEY}`)).data.results
 
     let Arraydiets = ["vegetarian"]
     
