@@ -6,6 +6,9 @@ import {Detail} from "./pages/details/Detail"
 import {Create} from "./pages/create/Create"
 import { NotFound } from "./pages/notFound/NotFound"
 import style from "./App.module.css"
+import axios from "axios"
+axios.defaults.baseURL = "http://localhost:3001"
+
 
 
 

@@ -3,7 +3,7 @@ import axios from "axios";
 export const getRecipes = ()=>{
     return async (dispatch)=>{
         try {
-            const data = await axios("http://localhost:3001/recipes")
+            const data = await axios("/recipes")
             return dispatch({
                 type: "GET_RECIPE",
                 payload : data.data
@@ -17,7 +17,7 @@ export const getRecipes = ()=>{
 export const filterNameRecipe = (name)=>{
     return async (dispatch)=>{
         try {
-            const data = await axios(`http://localhost:3001/recipes?name=${name}`)
+            const data = await axios(`/recipes?name=${name}`)
             return dispatch({
                 type: "FILTER_NAME",
                 payload : data.data
@@ -31,7 +31,7 @@ export const filterNameRecipe = (name)=>{
 export const getDiets = ()=>{
     return async (dispatch)=>{
         try {
-            const data = await axios(`http://localhost:3001/diets`)
+            const data = await axios(`/diets`)
             return dispatch({
                 type: "GET_DIETS",
                 payload : data.data
