@@ -1,5 +1,5 @@
 import axios from "axios";
-import { UseSelector, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const recipes = useSelector(state=> state.recipes)
 
