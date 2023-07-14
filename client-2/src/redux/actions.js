@@ -6,13 +6,13 @@ const recipes = useSelector(state=> state.recipes)
 export const getRecipes = ()=>{
     return async (dispatch)=>{
         try {
-            if(!recipes.length){
+            // if(!recipes.length){
                 const data = await axios("/recipes")
-                recipes = data.data
-            }
+            //     recipes = data.data
+            // }
             return dispatch({
                 type: "GET_RECIPE",
-                payload : recipes
+                payload : data.data
             })
         } catch (error) {
             console.log(error.message)
