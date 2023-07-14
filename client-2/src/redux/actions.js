@@ -1,15 +1,11 @@
 import axios from "axios";
-import { useSelector } from "react-redux";
 
 const recipes = useSelector(state=> state.recipes)
 
 export const getRecipes = ()=>{
     return async (dispatch)=>{
         try {
-            // if(!recipes.length){
                 const data = await axios("/recipes")
-            //     recipes = data.data
-            // }
             return dispatch({
                 type: "GET_RECIPE",
                 payload : data.data
