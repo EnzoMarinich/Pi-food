@@ -1,6 +1,5 @@
 import axios from "axios";
 
-const recipes = useSelector(state=> state.recipes)
 
 export const getRecipes = ()=>{
     return async (dispatch)=>{
