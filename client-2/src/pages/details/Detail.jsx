@@ -10,7 +10,7 @@ export const Detail = () => {
   const [recipe, setRecipe] = useState({});
 
   const searchRecipe = async () => {
-    const rec = (await axios(`http://localhost:3001/recipes/${id}`)).data;
+    const rec = (await axios(`/recipes/${id}`)).data;
     setRecipe(rec);
   };
 
