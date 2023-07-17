@@ -11,7 +11,7 @@ export const CreateForm = ({ diets }) => {
   const [formData, setFormData] = useState({
     name: "",
     summary: "",
-    image:"https://media.istockphoto.com/id/1316145932/es/foto/vista-de-mesa-de-comida-picante.jpg?s=612x612&w=0&k=20&c=4IPLackG3yCSB4fLB87gQnJQCngyyn2KNlHHz7UflvI=",
+    image:"",
     healthScore: 0,
     diets: [],
     steps: ""
