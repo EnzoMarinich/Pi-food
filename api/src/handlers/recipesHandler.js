@@ -30,7 +30,7 @@ const postRecipeHandler = async (req, res) => {
     const newRecipe = await postRecipeControllers(datos)
     res.status(202).json(newRecipe);
   } catch (error) {
-    res.status(400).json({ err: error.message });
+    res.status(400).json(error);
   }
 };
 
