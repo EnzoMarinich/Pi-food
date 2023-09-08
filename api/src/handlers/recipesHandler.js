@@ -3,6 +3,7 @@ const { getRecipesControllers } = require("../controllers/recipes/GetAllControll
 const { postRecipeControllers } = require("../controllers/recipes/postController");
 
 
+
 const getRecipeHandler = async (req, res) => {
   const { name } = req.query;
   try {
@@ -17,7 +18,6 @@ const getRecipeByIdHandler = async (req, res) => {
   const { id } = req.params;
   try {
     const recipe = await getRecipeByIdController(id)
-    console.log(recipe)
     res.status(200).json(recipe);
   } catch (error) {
     res.status(404).send(error.message);
@@ -25,10 +25,12 @@ const getRecipeByIdHandler = async (req, res) => {
 };
 
 const postRecipeHandler = async (req, res) => {
-  const datos = ({ name, image, summary, healthScore, steps, diets } = req.body)
+  const datos = req.body
+
+  console.log(datos)
   try {
     const newRecipe = await postRecipeControllers(datos)
-    res.status(202).json(newRecipe);
+    res.status(200).json(newRecipe)
   } catch (error) {
     res.status(400).json(error);
   }

@@ -2,10 +2,8 @@ const { Recipe, Diet } = require("../../db");
 const { uploadImage } = require("../cloudinary");
 
 const postRecipeControllers = async (datos) => {
-  const { name, image, summary, healthScore, steps, diets } = datos
-
-  const imgCd = await uploadImage(image)
-  console.log(imgCd)
+  const { name, summary, healthScore, steps, diets } = datos.formData
+  const image = datos.image
 
   const newRecipe = await Recipe.create({
     name,

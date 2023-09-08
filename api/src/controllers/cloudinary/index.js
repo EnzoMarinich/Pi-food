@@ -5,17 +5,21 @@ const {
   } = process.env;
 
           
-cloudinary.config({ 
-  cloud_name: CD_NAME, 
-  api_key: CD_APIKEY, 
-  api_secret: CD_APISECRET 
-});
+
 
 const uploadImage = async (image)=>{
+
+    cloudinary.config({ 
+        cloud_name: CD_NAME, 
+        api_key: CD_APIKEY, 
+        api_secret: CD_APISECRET 
+      });
+
     try {
-        return await cloudinary.uploader.upload(image);
+        const resp = await cloudinary.uploader.upload(image);
+        return resp
     } catch (error) {
-        return new Error("Could not upload image.")
+        return new Error(error)
     }
 }
 
