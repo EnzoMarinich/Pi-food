@@ -29,6 +29,7 @@
     height: 9rem;
     gap: .4rem;
     position: relative;
+    margin-top: 3rem;
 }
 
 
@@ -71,4 +72,8 @@
 .locked:hover{
     background-color:  rgba(255,139,0);
     color: white ;
+}
+
+.imageDiv > img{
+    padding-left: 6rem;
 }

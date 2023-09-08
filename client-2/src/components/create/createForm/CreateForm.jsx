@@ -83,6 +83,7 @@ export const CreateForm = ({ diets }) => {
     
     const response = await axios.post("https://api.cloudinary.com/v1_1/dgctf25s6/image/upload", data)
     setImage(response.data.secure_url)
+    console.log(response.data.secure_url)
 }
 
   return (
@@ -90,7 +91,11 @@ export const CreateForm = ({ diets }) => {
         <InputField  name="name" label="Name:" type="text" formData={formData} handleInput={handleInput} error={formErrors.name}/>
         <InputField name="summary" label="Summary:" type="text" formData={formData} handleInput={handleInput}  error={formErrors.summary}/>
         <div className={style.image}>
-          <InputField name="image" label="image:" type="file" formData={formData} handleInput={handleImage}/>
+          <div className={style.imageDiv}>
+            <label htmlFor="image:">image:</label>
+            <input name="image" type="file"  onChange={handleImage}/>
+            {image && <img src={image} alt="image" style={{height:"100px"}}/>}
+          </div>
           <InputField name="healthScore" label="HealthScore:" type="range" formData={formData} handleInput={handleInput} error={formErrors.healthScore}/>
         </div>
         <div className={style.diets}>
