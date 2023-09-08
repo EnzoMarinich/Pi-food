@@ -5,17 +5,20 @@ import style from "./CreateForm.module.css"
 import { validateForm } from "../../../utils/validateForm";
 import { useSelector } from "react-redux"
 import { createRecipe } from "../../../utils/createRecipe";
+import axios, { all } from "axios";
 
 
 export const CreateForm = ({ diets }) => {
   const [formData, setFormData] = useState({
     name: "",
     summary: "",
-    image:"",
     healthScore: 0,
     diets: [],
     steps: ""
   })
+  const [image, setImage] = useState("")
+
+
   const [formErrors, setFormErrors] = useState({
     name: "",
     summary: "",
@@ -52,28 +55,42 @@ export const CreateForm = ({ diets }) => {
   },[formData])
 
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = async (e)=>{
     e.preventDefault()
     if(!Object.keys(formErrors).length){
-      createRecipe(formData)
-      alert("Receta creada correctamente!")
-      setFormData({
-        name: "",
-      summary: "",
-      image:"",
-      healthScore: 0,
-      diets: [],
-      steps: ""
-      }) 
+      const rsta = await createRecipe({formData, image})
+      if(rsta.status == 200){
+        alert("Receta creada correctamente!")
+        setFormData({
+          name: "",
+        summary: "",
+        healthScore: 0,
+        diets: [],
+        steps: ""
+        }) 
+      } else {
+        console.log(rsta)
+      }
     }
   }
+
+  const handleImage = async (e)=>{
+    const file = e.target.files[0];
+    const data = new FormData();
+
+    data.append("file", file)
+    data.append("upload_preset", "pifood")
+    
+    const response = await axios.post("https://api.cloudinary.com/v1_1/dgctf25s6/image/upload", data)
+    setImage(response.data.secure_url)
+}
 
   return (
       <form className={style.form} onSubmit={handleSubmit}>
         <InputField  name="name" label="Name:" type="text" formData={formData} handleInput={handleInput} error={formErrors.name}/>
         <InputField name="summary" label="Summary:" type="text" formData={formData} handleInput={handleInput}  error={formErrors.summary}/>
         <div className={style.image}>
-          <InputField name="image" label="image:" type="file" formData={formData} handleInput={handleInput}/>
+          <InputField name="image" label="image:" type="file" formData={formData} handleInput={handleImage}/>
           <InputField name="healthScore" label="HealthScore:" type="range" formData={formData} handleInput={handleInput} error={formErrors.healthScore}/>
         </div>
         <div className={style.diets}>

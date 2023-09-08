@@ -1,14 +1,11 @@
 import React from 'react'
 import {useNavigate} from "react-router-dom"
 import style from "./Landing.module.css"
-import { useDispatch, useSelector } from 'react-redux'
-import { getDiets } from '../../redux/actions'
 
 export const Landing = () => {
 
-  const diets = useSelector(state=> state.diets)
   const navigate = useNavigate()
-  const dispatch = useDispatch()
+
 
   const handleClick = ()=>{
     navigate("/home")

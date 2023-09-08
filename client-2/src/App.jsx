@@ -7,8 +7,9 @@ import {Create} from "./pages/create/Create"
 import { NotFound } from "./pages/notFound/NotFound"
 import style from "./App.module.css"
 import axios from "axios"
-axios.defaults.baseURL = "https://pi-food-production-3371.up.railway.app"
+axios.defaults.baseURL = "http://localhost:3001"
 
+// https://pi-food-production-3371.up.railway.app"
 //  http://localhost:3001  
 
 
