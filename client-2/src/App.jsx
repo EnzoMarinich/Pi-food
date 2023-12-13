@@ -1,35 +1,32 @@
-import {Routes, Route, useLocation, useNavigate} from "react-router-dom"
-import { NavBar } from "./components/navBar/NavBar"
-import { Landing } from "./pages/landing/Landing"
-import {Home} from "./pages/home/Home"
-import {Detail} from "./pages/details/Detail"
-import {Create} from "./pages/create/Create"
-import { NotFound } from "./pages/notFound/NotFound"
-import style from "./App.module.css"
-import axios from "axios"
-axios.defaults.baseURL = "https://pi-food-production-3371.up.railway.app"
+import { Routes, Route, useLocation } from "react-router-dom";
+import { NavBar } from "./components/navBar/NavBar";
+import { Landing } from "./pages/landing/Landing";
+import { Home } from "./pages/home/Home";
+import { Detail } from "./pages/details/Detail";
+import { Create } from "./pages/create/Create";
+import { NotFound } from "./pages/notFound/NotFound";
+import style from "./App.module.css";
+import axios from "axios";
+axios.defaults.baseURL = "https://pi-food-production-3371.up.railway.app";
 
 // https://pi-food-production-3371.up.railway.app"
-//  http://localhost:3001  
-
-
+//  http://localhost:3001
 
 function App() {
-  
-  const location = useLocation()
+  const location = useLocation();
 
   return (
     <div className={style.container}>
-      {location.pathname === "/"? null : <NavBar/>}
+      {location.pathname === "/" ? null : <NavBar />}
       <Routes>
-        <Route exact path="/" element={<Landing/>}/>
-        <Route path="/home" element={<Home />}/>
-        <Route path="/home/detail/:id" element={<Detail/>}/>
-        <Route path="/create" element={<Create/>}/>
-        <Route path="*" element={<NotFound/>}/>
+        <Route exact path="/" element={<Landing />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/home/detail/:id" element={<Detail />} />
+        <Route path="/create" element={<Create />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

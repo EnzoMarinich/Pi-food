@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { CardList } from "../../components/cardList/CardList";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -20,16 +20,17 @@ export const Home = () => {
   });
 
   const handleByDiets = (e) => {
-
-    dispatch(filter({
-      ...filters,
-      diets: [...filters.diets, e.target.value],
-    }))
-
-    setFilters({
+    dispatch(
+      filter({
         ...filters,
         diets: [...filters.diets, e.target.value],
-      });
+      })
+    );
+
+    setFilters({
+      ...filters,
+      diets: [...filters.diets, e.target.value],
+    });
   };
 
   const handleByCreate = (e) => {

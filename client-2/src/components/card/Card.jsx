@@ -21,16 +21,16 @@ export const Card = ({ recipe }) => {
         <div className={style.detailInfo}>
           <FiChevronsUp className={style.icon} />
           <div className={style.detailDiets}>
-            {diets.map(diet=>{
-              let newDiet = diet.charAt(0).toUpperCase() + diet.slice(1)
-              return <strong>{newDiet}; </strong>
-            } )}
+            {diets?.map((diet, i) => {
+              let newDiet = diet.charAt(0).toUpperCase() + diet.slice(1);
+              return <strong key={i}>{newDiet}; </strong>;
+            })}
           </div>
           <Link className={style.link} to={`detail/${recipe.id}`}>
             <button className={style.button}>more info</button>
           </Link>
         </div>
       </div>
-    </div> 
+    </div>
   );
 };
