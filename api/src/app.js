@@ -19,6 +19,7 @@ server.use((req, res, next) => {
     "Access-Control-Allow-Origin",
     "https://pi-food-216w5jbya-enzomarinich.vercel.app"
   );
+  res.header("Access-Control-Allow-Credentials", "true");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
