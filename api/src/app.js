@@ -15,10 +15,7 @@ server.use(bodyParser.json({ limit: "50mb" }));
 server.use(cookieParser());
 server.use(morgan("dev"));
 server.use((req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://pi-food-216w5jbya-enzomarinich.vercel.app"
-  );
+  res.header("Access-Control-Allow-Origin", "https://pi-food-henna.vercel.app");
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
     "Access-Control-Allow-Headers",
